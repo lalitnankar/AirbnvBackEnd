@@ -12,4 +12,5 @@ import java.util.Optional;
 public interface ProperityRepository extends MongoRepository<Property, String> {
    // List<Property> findByHost_Id(String hostId);
     Optional<Property> findByHost_Id(String hostId);
+
 }

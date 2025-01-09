@@ -1,7 +1,6 @@
 package com.airbnb.airbnb.service;
 
 import com.airbnb.airbnb.entity.Property;
-import com.airbnb.airbnb.entity.Users;
 import com.airbnb.airbnb.repository.ProperityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,5 +46,9 @@ public class ProperityServiceImp implements ProperityService {
     public List<Property> getProperty() {
           List<Property> getProperties = properityRepository.findAll();
         return getProperties;
+    }
+    public Property getPropertyById(String Id){
+        Optional<Property> getProperty = properityRepository.findById(Id);
+        return getProperty.orElse(null);
     }
 }

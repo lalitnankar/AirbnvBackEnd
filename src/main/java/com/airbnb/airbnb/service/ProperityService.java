@@ -8,4 +8,5 @@ public interface ProperityService {
     public Property createProperty(Property property);
     public  Property updateProperty(String hostId,Property property);
     public List<Property>getProperty();
+    public Property getPropertyById(String hostId);
 }

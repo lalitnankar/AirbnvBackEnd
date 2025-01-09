@@ -71,4 +71,21 @@ public class ProperityController {
 
   }
 
+  @GetMapping("/getProperty/{id}")
+  public ResponseEntity<PropertyResponse>  getProperity(@PathVariable("id") String id) {
+      PropertyResponse propertyResponse = new PropertyResponse();
+      Property result = properityService.getPropertyById(id);
+      propertyResponse.setDescription(result.getDescription());
+      propertyResponse.setTitle(result.getTitle());
+      propertyResponse.setImages(result.getImages());
+      propertyResponse.setLocation(result.getLocation());
+      propertyResponse.setPrice(result.getPrice());
+      propertyResponse.setHost(result.getHost());
+
+
+      return ResponseEntity.ok(propertyResponse);
+
+  }
+
+
 }
