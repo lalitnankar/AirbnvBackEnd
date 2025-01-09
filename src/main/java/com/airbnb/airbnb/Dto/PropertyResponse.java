@@ -1,34 +1,17 @@
-package com.airbnb.airbnb.entity;
+package com.airbnb.airbnb.Dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.airbnb.airbnb.entity.Users;
 
 import java.util.List;
 
-@Document(collection = "properties")
-public class Property {
-    @Id
-    private String id;
-
+public class PropertyResponse {
     private String title;
     private String description;
     private double price;
     private String location;
     private List<String> images;
-
-    @DBRef
     private Users host;
-
-    @DBRef
-    private List<Review> reviews;
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
+    private List<ReviewResponse> reviews;
 
     public String getTitle() {
         return title;
@@ -78,11 +61,11 @@ public class Property {
         this.host = host;
     }
 
-    public List<Review> getReviews() {
+    public List<ReviewResponse> getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<Review> reviews) {
+    public void setReviews(List<ReviewResponse> reviews) {
         this.reviews = reviews;
     }
 }

@@ -9,27 +9,23 @@ import java.util.Optional;
 
 @Service
 
-public class UserServiceImp implements UserService{
+public class UserServiceImp implements UserService {
     @Autowired
     UserRepository userRepository;
-    public String register(Users user){
 
-      String result = " ";
-      try {
-          Users saved = userRepository.save(user);
-          result = user.getUserName()+"saved sucessfully";
-
-      }catch(Exception e) {
-        result = " not saved sucessfully";
-      }
-
-     return result;
+    public Users register(Users user) {
+        try {
+            return userRepository.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new Users();
+        }
     }
- public Optional<Users> login(String username, String password)
- {
-     return  userRepository.findByUserNameAndPassword(username,password);
- }
 
+    public Optional<Users> login(String username, String password) {
+        return userRepository.findByUserNameAndPassword(username, password);
     }
+
+}
 
 

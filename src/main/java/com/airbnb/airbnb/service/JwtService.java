@@ -33,10 +33,10 @@ public class JwtService {
         return claimsResolver.apply(claims);
     }
 
-    public String generateToken(Optional<Users> user){
-     if (user.isEmpty()) {
-        throw new IllegalArgumentException("User must not be null");
-    }
+    public String generateToken(Optional<Users> user) {
+        if (user.isEmpty()) {
+            throw new IllegalArgumentException("User must not be null");
+        }
         return generateToken(new HashMap<>(), user.get());
     }
 

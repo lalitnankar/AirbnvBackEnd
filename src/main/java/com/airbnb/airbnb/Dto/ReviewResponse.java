@@ -1,20 +1,11 @@
-package com.airbnb.airbnb.entity;
+package com.airbnb.airbnb.Dto;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
-import org.springframework.data.mongodb.core.mapping.Document;
+public class ReviewResponse {
+    private String id; // Review ID
 
-@Document(collection = "review")
-public class Review {
-    @Id
-    private String id;
+    private UserResponse user; // Simplified user details
 
-    @DBRef
-    private Users user;
-
-    @DBRef
-    private Property property;
-
+    private PropertyResponse property;
     private int rating;
     private String comment;
 
@@ -26,19 +17,19 @@ public class Review {
         this.id = id;
     }
 
-    public Users getUser() {
+    public UserResponse getUser() {
         return user;
     }
 
-    public void setUser(Users user) {
+    public void setUser(UserResponse user) {
         this.user = user;
     }
 
-    public Property getProperty() {
+    public PropertyResponse getProperty() {
         return property;
     }
 
-    public void setProperty(Property property) {
+    public void setProperty(PropertyResponse property) {
         this.property = property;
     }
 
